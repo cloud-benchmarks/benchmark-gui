@@ -70,7 +70,9 @@ class Service(object):
         if not d:
             d.update(self._get_hw_constraints())
 
-        return d
+        return ' '.join([
+            '{}={}'.format(k, v) for k, v in d.items()
+        ])
 
     def _get_hw_constraints(self):
         if not self.status['Units']:
